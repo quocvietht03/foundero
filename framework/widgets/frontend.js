@@ -28,11 +28,28 @@
 			});
 		});
 	}
+
+	const FounderoAnimations = function ($scope, $) {
+		var heading = $scope.find(".elementor-heading-title");
+		let split = SplitText.create(heading, { type: "words", aria: "hidden" });
+
+		gsap.from(split.words, {
+			opacity: 0,
+			duration: 2,
+			ease: "sine.out",
+			stagger: 0.1,
+			scrollTrigger: {
+				trigger: heading,
+				scrub: true
+			}
+		});
+	}
 	
 
 	// Make sure you run this code under Elementor.
 	$(window).on('elementor/frontend/init', function () {
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-mobile-menu.default', FounderoMobileMenuHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/heading.default', FounderoAnimations);
 		
 	});
 

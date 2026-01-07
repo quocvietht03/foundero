@@ -148,8 +148,7 @@
 	
 	jQuery(window).on('resize', function () {
 		FounderoSubmenuAuto();
-		FounderoUpdateBodyWidthVariable();
-		FounderoHandleGridViewResize();
+		
 	});
 	
 	jQuery(window).on('scroll', function () {

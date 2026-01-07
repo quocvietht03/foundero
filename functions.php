@@ -49,6 +49,12 @@ if (!function_exists('foundero_enqueue_scripts')) {
 		wp_enqueue_script('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.js', array('jquery'), '', true);
 		wp_enqueue_style('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.css', array(), false);
 
+
+		wp_enqueue_script('foundero-gsap', get_template_directory_uri() . '/assets/libs/gsap/gsap.min.js', array('jquery'), '', true);
+		wp_enqueue_script('foundero-ScrollTrigger', get_template_directory_uri() . '/assets/libs/gsap/ScrollTrigger.min.js', array('jquery'), '', true);
+		wp_enqueue_script('foundero-SplitText', get_template_directory_uri() . '/assets/libs/gsap/SplitText.min.js', array('jquery'), '', true);
+		wp_enqueue_script('foundero-animations', get_template_directory_uri() . '/assets/js/animations.js', array('jquery'), '', true);
+
 		wp_enqueue_style('foundero-main', get_template_directory_uri() . '/assets/css/main.css',  array(), false);
 		wp_enqueue_style('foundero-style', get_template_directory_uri() . '/style.css',  array(), false);
 		wp_enqueue_script('foundero-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '', true);
@@ -112,4 +118,5 @@ if ( class_exists( 'ACF' ) ) {
 if ( did_action( 'elementor/loaded' ) ) {
     /* Widgets Load */
 	require_once get_template_directory() . '/framework/widget-load.php';
+	require_once get_template_directory() . '/framework/widget-hook.php';
 }
