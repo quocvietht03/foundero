@@ -127,7 +127,7 @@
 .bt-cover-image {
   position: relative;
   overflow: hidden;
-  background-color: #F6F6F4;
+  background-color: #f6f6f4;
   background-image: url(../images/placeholder-image.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -147,7 +147,7 @@
 .bt-cover-iframe {
   position: relative;
   overflow: hidden;
-  background: #F6F6F4;
+  background: #f6f6f4;
   padding-bottom: 46.5%;
   iframe {
     @extend .bt-image-absolute;
@@ -696,4 +696,20 @@
       height: 20px;
     }
   }
+}
+.bt-popup-fullscreen { 
+    .elementor-location-popup {
+      height: 100%;
+      > .elementor-element {
+        height: 100%;
+      }
+      &.elementor-edit-mode{
+        > .elementor-section-wrap{
+          height: 100%;
+          > .elementor-element{
+            height: 100%;
+          }
+        }
+      }
+    }
 }

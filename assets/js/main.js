@@ -136,6 +136,39 @@
 		}
 	}
 
+	/* Close Elementor Popup */
+	function FounderoClosePopup() {
+		$(document).on('click', '.bt-icon-close', function (e) {
+			e.preventDefault();
+			
+			// Try Elementor Pro popup API first
+			if (typeof elementorProFrontend !== 'undefined' && elementorProFrontend.modules && elementorProFrontend.modules.popup) {
+				// Find the popup element
+				var $popup = $(this).closest('[data-elementor-type="popup"]');
+				if ($popup.length > 0) {
+					var popupID = $popup.data('elementorId');
+					if (popupID && elementorFrontend.documentsManager && elementorFrontend.documentsManager.documents[popupID]) {
+						elementorFrontend.documentsManager.documents[popupID].getModal().hide();
+						return;
+					}
+				}
+			}
+			
+			// Fallback: find and close modal manually
+			var $modal = $(this).closest('.elementor-popup-modal, .dialog-widget-content');
+			if ($modal.length > 0) {
+				$modal.fadeOut(300, function() {
+					$modal.parent().removeClass('elementor-editor-popup-active');
+				});
+			}
+			
+			// Also try to close any open dialog
+			if (typeof elementorFrontend !== 'undefined' && elementorFrontend.hooks) {
+				elementorFrontend.hooks.doAction('popup/close');
+			}
+		});
+	}
+
 	jQuery(document).ready(function ($) {
 		FounderoSubmenuAuto();
 		FounderoToggleMenuMobile();
@@ -143,6 +176,7 @@
 		FounderoCommentValidation();
 		FounderoCopyrightCurrentYear();
 		FounderoBackToTop();
+		FounderoClosePopup();
 
 	});
 	

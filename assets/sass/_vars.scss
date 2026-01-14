@@ -1,18 +1,18 @@
 /*
  * Fonts
  */
-$text-font: var(--e-global-typography-text-font-family, "Outfit"), sans-serif;
-$primary-font: var(--e-global-typography-primary-font-family, "Outfit"), sans-serif;
-$secondary-font: var(--e-global-typography-secondary-font-family, "Outfit"), sans-serif;
-$accent-font: var(--e-global-typography-accent-font-family, "Outfit"), sans-serif;
+$text-font: var(--e-global-typography-text-font-family, "Sora"), sans-serif;
+$primary-font: var(--e-global-typography-primary-font-family, "Sora"), sans-serif;
+$secondary-font: var(--e-global-typography-secondary-font-family, "Sora"), sans-serif;
+$accent-font: var(--e-global-typography-accent-font-family, "Sora"), sans-serif;
 /*
  * colors
  */
 
-$color-primary: var(--e-global-color-primary, #181818);
-$color-secondary: var(--e-global-color-secondary, #A2A4AB);
-$color-text: var(--e-global-color-text, #616365);
-$color-accent: var(--e-global-color-accent, #DF4242);
+$color-primary: var(--e-global-color-primary, #171717);
+$color-secondary: var(--e-global-color-secondary, #D97757);
+$color-text: var(--e-global-color-text, #717171);
+$color-accent: var(--e-global-color-accent, #6D28D9);
 
 $color-rating: #FDCC0D;
 $color-green: #3dab25;

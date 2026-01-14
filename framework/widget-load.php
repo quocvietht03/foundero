@@ -51,6 +51,7 @@ class ElementorWidgets
 			'site-social',
 			'site-copyright',
 			'page-breadcrumb',
+			'menu-business',
 
 		);
 
@@ -154,6 +155,7 @@ class ElementorWidgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoSiteSocial\Widget_FounderoSiteSocial());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoSiteCopyright\Widget_FounderoSiteCopyright());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoPageBreadcrumb\Widget_FounderoPageBreadcrumb());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoMenuBusiness\Widget_FounderoMenuBusiness());
 	}
 
 	/**
