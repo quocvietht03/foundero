@@ -363,12 +363,21 @@ if (! function_exists('foundero_paging_nav')) {
 if (!function_exists('foundero_back_to_top')) {
 	function foundero_back_to_top()
 	{
-	?>
+		?>
 		<a href="#" class="bt-back-to-top">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 				<path d="M1.00098 10.25L10.001 1.25L19.001 10.25H14.501V18.5C14.501 18.6989 14.422 18.8897 14.2813 19.0303C14.1407 19.171 13.9499 19.25 13.751 19.25H6.25098C6.05206 19.25 5.8613 19.171 5.72065 19.0303C5.57999 18.8897 5.50098 18.6989 5.50098 18.5V10.25H1.00098Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 			</svg>
 		</a>
+
+		<span class="bt-backdrop-blur-wrapper gsap-backdrop-blur-cursor">
+			<span class="bt-backdrop-blur"></span>
+			<span class="bt-backdrop-blur"></span>
+			<span class="bt-backdrop-blur"></span>
+			<span class="bt-backdrop-blur"></span>
+			<span class="bt-backdrop-blur"></span>
+			<span class="bt-backdrop-blur"></span>
+		</span>
 		<?php
 	}
 }

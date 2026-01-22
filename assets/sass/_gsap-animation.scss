@@ -1,0 +1,62 @@
+.bt-backdrop-blur-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    border-radius: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  &.gsap-backdrop-blur-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+  }
+  .bt-backdrop-blur {
+    grid-area: 1 / 1;
+    transition: opacity 0.2s linear;
+  }
+
+  .bt-backdrop-blur:nth-child(1) {
+    backdrop-filter: blur(15px);
+    -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 8%);
+    mask-image: radial-gradient(circle, #000 0%, transparent 8%);
+  }
+
+  .bt-backdrop-blur:nth-child(2) {
+    backdrop-filter: blur(12px);
+    -webkit-mask-image: radial-gradient(circle, #000 8%, transparent 16%);
+    mask-image: radial-gradient(circle, #000 8%, transparent 16%);
+  }
+
+  .bt-backdrop-blur:nth-child(3) {
+    backdrop-filter: blur(9px);
+    -webkit-mask-image: radial-gradient(circle, #000 16%, transparent 24%);
+    mask-image: radial-gradient(circle, #000 16%, transparent 24%);
+  }
+
+  .bt-backdrop-blur:nth-child(4) {
+    backdrop-filter: blur(6px);
+    -webkit-mask-image: radial-gradient(circle, #000 24%, transparent 36%);
+    mask-image: radial-gradient(circle, #000 24%, transparent 36%);
+  }
+
+  .bt-backdrop-blur:nth-child(5) {
+    backdrop-filter: blur(3px);
+    -webkit-mask-image: radial-gradient(circle, #000 36%, transparent 48%);
+    mask-image: radial-gradient(circle, #000 36%, transparent 48%);
+  }
+
+  .bt-backdrop-blur:nth-child(6) {
+    backdrop-filter: blur(1px);
+    -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 64%);
+    mask-image: radial-gradient(circle, #000 48%, transparent 64%);
+  }
+}

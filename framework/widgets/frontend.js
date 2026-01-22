@@ -29,23 +29,7 @@
 		});
 	}
 
-	const FounderoAnimations = function ($scope, $) {
-		var heading = $scope.find(".elementor-heading-title");
-		let split = SplitText.create(heading, { type: "words", aria: "hidden" });
-
-		gsap.from(split.words, {
-			opacity: 0,
-			duration: 2,
-			ease: "sine.out",
-			stagger: 0.1,
-			scrollTrigger: {
-				trigger: heading,
-				scrub: true
-			}
-		});
-	}
-
-
+	/* Business Menu */
 	const FounderoMenuBusinessHandler = function ($scope, $) {
 		var $menuItems = $scope.find('.bt-menu-business--item');
 		var $contentItems = $scope.find('.bt-menu-business--content');
@@ -175,11 +159,78 @@
 		});
 	}
 
+	const FounderoBlurTextAnimation = function ($scope, $) {
+		const settings = $scope.data('settings') || {};
+
+		const wrapper  = $scope;
+		const autoBlur = $scope.find('.gsap-backdrop-blur-auto');
+
+		if (!autoBlur.length) return;
+		
+		function moveAutoRandom() {
+			const maxX = Math.max(0, wrapper.outerWidth());
+			const maxY = Math.max(0, wrapper.outerHeight());
+
+			gsap.to(autoBlur, {
+				x: gsap.utils.random(0, maxX),
+				y: gsap.utils.random(0, maxY),
+				duration: gsap.utils.random(1.2, 2.5),
+				ease: 'power1.inOut',
+				onComplete: () => gsap.delayedCall(1, moveAutoRandom) // ⏱ pause
+			});
+		}
+
+		function moveLeftRightRandom() {
+			const maxX = Math.max(0, wrapper.outerWidth());
+			const centerY = (wrapper.outerHeight()) / 2;
+
+			gsap.to(autoBlur, {
+				x: gsap.utils.random(0, maxX),
+				y: centerY,
+				duration: gsap.utils.random(1.2, 2.5),
+				ease: 'power1.inOut',
+				onComplete: () => gsap.delayedCall(1, moveLeftRightRandom)
+			});
+		}
+ 
+		if(settings.foundero_animation_type === 'random'){
+			gsap.delayedCall(1, moveAutoRandom);
+		}
+
+		if(settings.foundero_animation_type === 'left_right'){
+			gsap.delayedCall(1, moveLeftRightRandom);
+		}
+
+	}
+
+	const FounderoSpinImageAnimation = function ($scope, $) {
+		const settings = $scope.data('settings') || {};
+
+		if (settings.foundero_gsap_spin_enable !== 'yes' && settings.foundero_gsap_move_enable !== 'yes') {
+			return;
+		}
+
+		if (settings.foundero_gsap_spin_enable === 'yes') {
+			const image = $scope.find('img');
+			if (!image.length) return;
+
+			gsap.to(image, {
+				rotation: 360,
+				duration: 6,
+				repeat: -1,
+				ease: 'none',
+				transformOrigin: '50% 50%'
+			});
+		}
+		
+	};
+
 	// Make sure you run this code under Elementor.
 	$(window).on('elementor/frontend/init', function () {
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-mobile-menu.default', FounderoMobileMenuHandler);
-		elementorFrontend.hooks.addAction('frontend/element_ready/heading.default', FounderoAnimations);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-menu-business.default', FounderoMenuBusinessHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/heading.default', FounderoBlurTextAnimation);
+		elementorFrontend.hooks.addAction('frontend/element_ready/image.default', FounderoSpinImageAnimation);
 
 	});
 

@@ -120,6 +120,3 @@ if ( did_action( 'elementor/loaded' ) ) {
 	require_once get_template_directory() . '/framework/widget-load.php';
 	require_once get_template_directory() . '/framework/widget-hook.php';
 }
-
-/* Plugin Requred */
-require_once get_template_directory() . '/plugin-install/plugin-required.php';

@@ -52,6 +52,9 @@ class ElementorWidgets
 			'site-copyright',
 			'page-breadcrumb',
 			'menu-business',
+			'pricing-table',
+			'light-shape',
+			'images-vertical-scroll',
 
 		);
 
@@ -156,6 +159,9 @@ class ElementorWidgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoSiteCopyright\Widget_FounderoSiteCopyright());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoPageBreadcrumb\Widget_FounderoPageBreadcrumb());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoMenuBusiness\Widget_FounderoMenuBusiness());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoPricingTable\Widget_FounderoPricingTable());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoLightShape\Widget_FounderoLightShape());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FounderoImagesVerticalScroll\Widget_FounderoImagesVerticalScroll());
 	}
 
 	/**
